@@ -1,12 +1,13 @@
 import os
-def curr_path():
-    cwd = os.getcwd()
-    print("Current working dir: ", cwd)
 
-curr_path()
-os.chdir("/home")
-curr_path()
-
+#OS name/info
+os_info = os.uname()
 os_name = os.uname().sysname
+print(os_info)
 print(os_name)
-print(os.name)
+
+#Current Working Directory
+cwd = os.getcwd()
+print("Current working dir: ", cwd)
+
+
