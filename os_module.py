@@ -27,21 +27,22 @@ def osname_listdir():
 
 #osname_listdir()
 
-# Sort the files in current working directory
+# Function to Sort the files in current working directory
 
 def soft_files():
     files_n_dirs = os.listdir('.')
     print (files_n_dirs)
 
-    #VALID FILES CHECK
-    files = [item for item in files_n_dirs if os.path.isfile(os.path.join(os.getcwd(),item))]
+    cwd = os.getcwd()
+    #VALID FILES CHECK AND SORT
+    files = [(item,os.path.getsize(os.path.join(cwd,item))) for item in files_n_dirs if os.path.isfile(os.path.join(cwd,item))]
     print(f'Files: {files}')
     sorted_files = sorted(files)
 
     #Print one by one
     if sorted_files:
-        for f in sorted_files:
-            print(f'- {f}')
+        for (f,s) in sorted_files:
+            print(f'- File name: {f} and Size: {s}')
 
 
 soft_files()
